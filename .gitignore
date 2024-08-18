@@ -1,0 +1,33 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+.env
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+docker-compose.local.yml
+
+# PostgreSQL
+pgdata/
+
+# Virtual Environment
+venv/
+.env/
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+
+# Arquivos temporários
+*.log
+*.tmp
+
+# Arquivos de configuração locais
+*.local
+
+# Arquivos de cache
+cache/
