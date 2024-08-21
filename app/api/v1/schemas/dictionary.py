@@ -1,7 +1,6 @@
 from pydantic import BaseModel
-
 from datetime import datetime
-from typing import List, Optional
+from typing import List
 
 class HistoryBase(BaseModel):
     word: str
@@ -31,31 +30,19 @@ class FavoriteResponse(FavoriteBase):
     class Config:
         orm_mode = True
 
-class UserBase(BaseModel):
-    name: str
-    email: str
-
-class UserCreate(UserBase):
-    password: str
-
-class UserResponse(UserBase):
-    id: int
-    history: List[HistoryResponse] = []
-    favorites: List[FavoriteResponse] = []
+class EntryDetail(BaseModel):
+    word: str
+    definition: str 
+    
+class DictionaryList(BaseModel):
+    results: List[EntryDetail]
+    totalDocs: int
+    page: int
+    totalPages: int
+    hasNext: bool
+    hasPrev: bool
+    pagination: dict
+  
 
     class Config:
         orm_mode = True
-
-class SignUp(BaseModel):
-    name: str
-    email: str
-    password: str
-
-class SignIn(BaseModel):
-    email: str
-    password: str
-    
-    
-    
-    
-    
